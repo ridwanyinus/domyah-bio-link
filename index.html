@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Domyah Bio Link</title>
+    <link rel="stylesheet" href="./dist/main.css" />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap" rel="stylesheet" />
+    <link rel="preload" href="./public/fonts/inter-v19-latin-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./public/fonts/inter-v19-latin-500.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./public/fonts/inter-v19-latin-700.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+  </head>
+  <body>
+    <main class="bio-link">
+      <div class="bio-link__container">
+        <header class="bio-link__header">
+          <!-- Changed aria-label to be more descriptive -->
+          <button class="bio-link__nav-btn" type="button" aria-label="View layout options">
+            <img src="./public/images/shapes.svg" alt="" width="24" height="24" />
+          </button>
+          <button class="bio-link__nav-share" type="button" aria-label="Share profile link">
+            <img src="./public/images/share.svg" alt="" width="24" height="24" />
+          </button>
+        </header>
+
+        <img class="bio-link__avatar" src="./public/images/user.png" alt="Domyah's profile photo" width="60" height="60" />
+
+        <h1 class="bio-link__name">Domyah</h1>
+        <h2 class="bio-link__subtitle">A UI/UX designer who loves Coding, Illustrating & creating 3D stuff</h2>
+
+        <!-- Added role="list" and aria-label for better screen reader context -->
+        <div class="bio-link__buttons" role="list" aria-label="Social media and portfolio links">
+          <div class="bio-link__button" role="listitem">
+            <a href="#" class="bio-link__button-link" aria-describedby="portfolio-desc">
+              <div class="bio-link__button-icon">
+                <!-- Fixed alt text to match actual content -->
+                <img src="./public/images/globe.svg" alt="Globe icon" width="39" height="28" />
+              </div>
+              <p class="bio-link__button-text" id="portfolio-desc">Visit Portfolio</p>
+            </a>
+            <button class="bio-link__button-ellipsis" type="button" aria-label="More options for portfolio link">
+              <img src="./public/images/ellipsis.svg" alt="" width="24" height="24" />
+            </button>
+          </div>
+
+          <div class="bio-link__button" role="listitem">
+            <a href="#" class="bio-link__button-link" aria-describedby="tiktok-desc">
+              <div class="bio-link__button-icon">
+                <!-- Fixed alt text -->
+                <img src="./public/images/tiktok.svg" alt="TikTok icon" width="39" height="28" />
+              </div>
+              <p class="bio-link__button-text" id="tiktok-desc">TikTok</p>
+            </a>
+            <button class="bio-link__button-ellipsis" type="button" aria-label="More options for TikTok link">
+              <img src="./public/images/ellipsis.svg" alt="" width="24" height="24" />
+            </button>
+          </div>
+
+          <div class="bio-link__button" role="listitem">
+            <a href="#" class="bio-link__button-link" aria-describedby="x-desc">
+              <div class="bio-link__button-icon">
+                <!-- Fixed alt text -->
+                <img src="./public/images/x.svg" alt="X (formerly Twitter) icon" width="39" height="28" />
+              </div>
+              <p class="bio-link__button-text" id="x-desc">X</p>
+            </a>
+            <button class="bio-link__button-ellipsis" type="button" aria-label="More options for X link">
+              <img src="./public/images/ellipsis.svg" alt="" width="24" height="24" />
+            </button>
+          </div>
+
+          <div class="bio-link__button" role="listitem">
+            <a href="#" class="bio-link__button-link" aria-describedby="instagram-desc">
+              <div class="bio-link__button-icon">
+                <!-- Fixed alt text -->
+                <img src="./public/images/instagram.svg" alt="Instagram icon" width="39" height="28" />
+              </div>
+              <!-- Fixed capitalization for consistency -->
+              <p class="bio-link__button-text" id="instagram-desc">Instagram</p>
+            </a>
+            <button class="bio-link__button-ellipsis" type="button" aria-label="More options for Instagram link">
+              <img src="./public/images/ellipsis.svg" alt="" width="24" height="24" />
+            </button>
+          </div>
+
+          <div class="bio-link__button" role="listitem">
+            <a href="#" class="bio-link__button-link" aria-describedby="youtube-desc">
+              <div class="bio-link__button-icon">
+                <!-- Alt text was already correct -->
+                <img src="./public/images/youtube.svg" alt="YouTube icon" width="39" height="28" />
+              </div>
+              <!-- Fixed capitalization for consistency -->
+              <p class="bio-link__button-text" id="youtube-desc">YouTube</p>
+            </a>
+            <button class="bio-link__button-ellipsis" type="button" aria-label="More options for YouTube link">
+              <img src="./public/images/ellipsis.svg" alt="" width="24" height="24" />
+            </button>
+          </div>
+
+          <div class="bio-link__button" role="listitem">
+            <a href="#" class="bio-link__button-link" aria-describedby="facebook-desc">
+              <div class="bio-link__button-icon">
+                <!-- Fixed alt text -->
+                <img src="./public/images/facebook.svg" alt="Facebook icon" width="39" height="28" />
+              </div>
+              <!-- Fixed capitalization for consistency -->
+              <p class="bio-link__button-text" id="facebook-desc">Facebook</p>
+            </a>
+            <button class="bio-link__button-ellipsis" type="button" aria-label="More options for Facebook link">
+              <img src="./public/images/ellipsis.svg" alt="" width="24" height="24" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="modal" id="optionsModal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <div class="modal__header">
+          <h3 class="modal__title" id="modal-title">Share Links</h3>
+          <button class="modal__close" type="button" aria-label="Close modal">
+            <img src="./public/images/close.svg" alt="" width="24" height="24" />
+          </button>
+        </div>
+        <div class="modal__body" id="modal-description">
+          <a href="" class="modal__link-preview">
+            <div class="modal__link-preview-icon">
+              <img src="./public/images/tiktok.svg" alt="" width="24" height="24" />
+              <p>Tiktok - I've never used it</p>
+              <span>www.tiktok.com/@domyah</span>
+            </div>
+          </a>
+
+          <div class="modal__share-list">
+            <button class="modal__share-list--btn">
+              <span class="copy-link-icon">
+                <img src="./public/images/copy-link.svg" alt="" width="24" height="24" />
+              </span>
+              <span>Copy link</span>
+            </button>
+            <a href="" class="modal__share-list--link">
+              <span class="social-icon">
+                <img src="./public/images/discord.svg" alt="" width="24" height="24" />
+              </span>
+              <span>Discord</span>
+            </a>
+            <a href="" class="modal__share-list--link">
+              <span class="social-icon">
+                <img src="./public/images/x-rounded.svg" alt="" width="24" height="24" />
+              </span>
+              <span>X</span>
+            </a>
+            <a href="" class="modal__share-list--link">
+              <span class="social-icon">
+                <img src="./public/images/whatsapp.svg" alt="" width="24" height="24" />
+              </span>
+              <span>WhatsApp</span>
+            </a>
+            <a href="" class="modal__share-list--link">
+              <span class="social-icon">
+                <img src="./public/images/snapchat.svg" alt="" width="24" height="24" />
+              </span>
+              <span>SnapChat</span>
+            </a>
+            <a href="" class="modal__share-list--link">
+              <span class="social-icon">
+                <img src="./public/images/facebook.svg" alt="" width="24" height="24" />
+              </span>
+              <span>Facebook</span>
+            </a>
+            <a href="" class="modal__share-list--link">
+              <span class="social-icon">
+                <img src="./public/images/linkedin.svg" alt="" width="24" height="24" />
+              </span>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./src/main.js"></script>
+  </body>
+</html>

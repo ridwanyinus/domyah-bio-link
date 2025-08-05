@@ -1,0 +1,164 @@
+@use '../utils/' as *;
+
+.bio-link {
+  background-color: $col-light;
+  color: $col-dark;
+  text-align: center;
+
+  &__container {
+    width: min(100% - rem(24), rem(650));
+    padding-block: 28px;
+    padding-inline: 12px;
+    margin-inline: auto;
+    min-height: 100vh;
+
+    @include media('>=tablet') {
+      padding-inline: 24px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding-block-end: 1rem;
+    button {
+      border: 0px solid transparent;
+      background-color: $col-white;
+      outline: none;
+      cursor: pointer;
+      border-radius: 50%;
+      padding: 0.5rem;
+
+      img {
+        width: 20px;
+        height: 20px;
+
+        @include media('>=tablet') {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+
+  &__nav-share {
+    color: $col-dark;
+    stroke: $col-black;
+
+    img {
+      filter: brightness(0) saturate(100%) invert(9%) sepia(15%) saturate(1598%) hue-rotate(208deg) brightness(97%) contrast(91%);
+    }
+  }
+
+  &__avatar {
+    display: inline-block;
+    margin-block-end: rem(16);
+  }
+
+  &__name {
+    font-size: rem(18);
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.7;
+  }
+
+  &__subtitle {
+    line-height: rem(22);
+    font-weight: inherit;
+    font-size: rem(14);
+    margin-inline: auto;
+    text-wrap: balance;
+
+    @include media('>=tablet') {
+      max-width: calc(546px - 104px);
+      font-size: rem(16);
+    }
+  }
+
+  &__featured-links {
+    font-size: rem(12);
+    text-transform: uppercase;
+    margin-block-start: rem(24);
+  }
+
+  &__buttons {
+    margin-block-start: rem(24);
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid $col-dark-grey;
+    background-color: $col-button-bg;
+    border-radius: rem(48);
+    margin-inline: auto;
+    margin-block-start: rem(14);
+    padding: rem(10);
+    transition: box-shadow 0.2s cubic-bezier(0.61, 1, 0.88, 1);
+
+    @include media('>=tablet') {
+      max-width: rem(538);
+    }
+
+    &:hover {
+      box-shadow: 4px 4px 0px hsl(0, 0%, 16%);
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      text-decoration: none;
+      color: inherit;
+    }
+    &-icon {
+      display: flex;
+      align-items: center;
+      margin-right: rem(12);
+
+      width: 25px;
+      height: auto;
+
+      @include media('>= tablet') {
+        width: 32px;
+      }
+    }
+
+    &-text {
+      flex: 1;
+      text-align: center;
+      font-weight: 500;
+      font-size: rem(14);
+      text-transform: capitalize;
+
+      @include media('>=tablet') {
+        font-size: rem(17);
+      }
+    }
+
+    &-ellipsis {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: rem(8);
+      border-radius: 50%;
+      transition: background-color 0.2s ease;
+
+      img {
+        width: 20px;
+        height: 20px;
+
+        @include media('>= tablet') {
+          width: 24px;
+          height: auto;
+        }
+      }
+    }
+  }
+}
