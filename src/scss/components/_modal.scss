@@ -1,4 +1,7 @@
 @use '../utils/' as *;
+%padding-header {
+  padding: 24px 24px 16px;
+}
 
 .modal {
   position: fixed;
@@ -7,9 +10,8 @@
   width: 100%;
   height: 100%;
   z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  place-items: center;
+  display: grid;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -30,40 +32,13 @@
   backdrop-filter: blur(4px);
 }
 
-.modal__content {
-  position: relative;
-  background-color: $col-light;
-  border-radius: 16px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  width: min(100% - rem(12), rem(510));
-  min-height: 80vh;
-  overflow-y: auto;
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
-}
-
 .modal--active .modal__content {
   transform: scale(1);
 }
 
-.modal__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 24px 16px;
-  // border-bottom: 1px solid hsl(0, 0%, 90%);
-}
-
-.modal__title {
-  margin-inline: auto;
-  font-size: rem(16);
-  font-weight: 600;
-}
-
 .modal__close {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  place-items: center;
+  display: grid;
   width: 32px;
   height: 32px;
   border: none;
@@ -82,81 +57,164 @@
   padding: 16px 24px 24px;
 }
 
-.modal__link-preview {
-  border: 1px solid hsl(0, 0%, 85%);
+.modal__content {
+  position: relative;
+  background-color: $col-light;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: min(100% - rem(12), rem(510));
+  overflow-y: auto;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  height: 90svh;
 
-  background-color: $col-grey;
-  border-radius: 1.5rem;
-  padding: 1.5rem;
-  text-align: center;
-
-  display: grid;
-  margin-inline: auto;
-  max-width: 400px;
-
-  &-icon {
-    color: $col-dark;
-    img {
-      display: inline-block;
-      margin-inline: auto;
-      width: 121px;
-      height: auto;
-    }
-
-    p {
-      font-size: rem(20);
-      font-weight: 700;
-    }
-
-    span {
-      font-size: rem(12);
-    }
+  @include media('>=desktop') {
+    max-height: auto;
   }
 }
 
-.modal__share-list {
-  margin-block: rem(20);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  overflow-x: auto;
-  white-space: nowrap;
-  padding-block-end: 16px;
-  gap: rem(24);
+.modal--link-options,
+.modal--share-profile {
+  min-height: 90svh;
 
-  .copy-link-icon {
-    background-color: $col-grey;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+  .modal__header {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    justify-content: space-between;
+    @extend %padding-header;
+    // border-bottom: 1px solid hsl(0, 0%, 90%);
   }
 
-  .social-icon {
-    width: 48px;
-
-    img {
-      width: 100%;
-    }
+  .modal__title {
+    margin-inline: auto;
+    font-size: rem(16);
+    font-weight: 600;
   }
 
-  &--btn,
-  &--link {
-    background: transparent;
-    border: none;
-    outline: none;
+  .modal__link-preview-card {
+    border: 1px solid hsl(0, 0%, 85%);
+    background-color: $col-grey;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
     text-align: center;
     display: grid;
-    justify-items: center;
-    color: $col-dark;
-    span {
-      font-size: 12px;
-      line-height: 22px;
+    margin-inline: auto;
+    max-width: 400px;
+
+    a {
+      color: $col-dark;
     }
+
+    .modal__link-preview-icon {
+      img {
+        display: inline-block;
+        margin-inline: auto;
+        width: 121px;
+        height: auto;
+      }
+    }
+
+    .modal__link-preview-content {
+      p {
+        font-size: rem(20);
+        font-weight: 700;
+      }
+
+      span {
+        font-size: rem(12);
+      }
+    }
+  }
+
+  .modal__share-options {
+    margin-block: rem(20);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-block-end: 16px;
+    gap: rem(24);
+
+    .copy-link-icon {
+      background-color: $col-grey;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      place-items: center;
+      display: grid;
+      cursor: pointer;
+    }
+
+    .modal__share-option {
+      width: 48px;
+      height: auto;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    button,
+    a {
+      background: transparent;
+      border: none;
+      outline: none;
+      text-align: center;
+      display: grid;
+      justify-items: center;
+      color: $col-dark;
+      span {
+        font-size: 12px;
+        line-height: 22px;
+      }
+    }
+  }
+  // modal__promotion-section (if there is need)
+}
+
+// === Modal 2: Promotional Modal ===
+.modal--promotional {
+  background-color: $col-grey;
+
+  .modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @extend %padding-header;
+  }
+
+  .modal__body--promotional {
+    // Placeholder
+  }
+
+  .modal__hero-section {
+    // Placeholder
+  }
+
+  .modal__signup-form {
+    // Placeholder
+  }
+
+  .modal__phone-mockup {
+    // Placeholder
+  }
+}
+
+// === Modal 3: Share Profile Modal ===
+.modal--share-profile {
+  // Start your styles here
+  .modal__profile-preview-card {
+    // Placeholder
+  }
+
+  .modal__share-options {
+    // Placeholder
+  }
+
+  .modal__promotion-section {
+    // Placeholder
   }
 }
 
@@ -168,7 +226,6 @@
 
   .modal__header,
   .modal__body {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-inline: 0 16px;
   }
 }
